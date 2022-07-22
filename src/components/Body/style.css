@@ -1,0 +1,25 @@
+table{
+    color : #68829e;
+    margin: 100px  10px;
+}
+thead{
+   background-color:#68829e ;
+   color: white;
+   cursor: pointer;
+}
+tbody ion-icon{
+   font-size: 24px;
+   color: #68829e;
+
+}
+tbody{
+   display: block;
+   height: 300px;
+   overflow-y: scroll;
+}
+
+thead, tbody tr{
+   display: table;
+   table-layout: fixed;
+   width: 100%;
+}
