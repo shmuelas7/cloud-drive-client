@@ -1,56 +1,32 @@
-import "./style.css";
-import Swal from "sweetalert2";
-import axios from "axios";
-import { useState } from "react";
+import React from "react";
+import { Container } from "react-bootstrap";
+// import { useFolder } from "../../hooks/useFolder";
+import AddFolderBtn from "./AddFolderBtn";
+import AddFileBtn from "./AddFileBtn";
+// import Folder from "./Folder";
+// import File from "./File";
+// import Navbar from "./Navbar";
+// import FolderBreadcrumbs from "./FolderBreadcrumbs";
+// import { useParams, useLocation } from "react-router-dom";
 
-export default function Body(props) {
-  // const [file, setFile] = useState();
-  const fromData = new FormData();
-  const addFile = async function () {
-    const file = await Swal.fire({
-      title: "Select file",
-      input: "file",
-      inputAttributes: {
-        accept: "*",
-      },
-    });
-    let data = new FormData();
-    data.append("image", file);
+export default function Dashboard() {
+  // const { folderId } = useParams();
+  // const { state = {} } = useLocation();
+  // const { folder, childFolders, childFiles } = useFolder(
+  //   folderId,
+  //   state.folder
+  // );
 
-    let res = await axios.post("http://localhost:3001/upload", {
-      data: data,
-    });
-    console.log(res);
-  };
   return (
-    <div className="container">
-      <table className="table">
-        <thead>
-          <tr id="table_head_row">
-            <th scope="col" id="name">
-              name
-            </th>
-            <th scope="col" id="size">
-              size
-            </th>
-            <th scope="col" id="time">
-              last modified
-            </th>
-            <th>
-              <p onClick={addFile}>+ (add file)</p>
-            </th>
-          </tr>
-        </thead>
-        <tbody id="tbody">
-          {/* {props.fileList.map((file, i) => {
-            return (
-              <tr key={i}>
-                <td>file</td>
-              </tr>
-            );
-          })} */}
-        </tbody>
-      </table>
-    </div>
+    <>
+      {/* <Navbar /> */}
+      <Container fluid>
+        <div className="d-flex align-items-center">
+          {/* <FolderBreadcrumbs currentFolder={folder} /> */}
+          <AddFileBtn currentFolder={null} />
+          <AddFolderBtn currentFolder={null} />
+        </div>
+      </Container>
+    </>
   );
 }
