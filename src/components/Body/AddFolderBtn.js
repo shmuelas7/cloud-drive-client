@@ -25,9 +25,9 @@ export default function AddFolderBtn({ currentFolder }) {
   }
 
   return (
-    <>
+    <div className="containerAddFolder">
       <Button onClick={openModal} variant="outline-success" size="sm">
-        {<FaFolderPlus />}
+        {<FaFolderPlus size="40px" />}
       </Button>
       <Modal show={open} onHide={closeModal}>
         <Form onSubmit={handleSubmit}>
@@ -52,6 +52,6 @@ export default function AddFolderBtn({ currentFolder }) {
           </Modal.Footer>
         </Form>
       </Modal>
-    </>
+    </div>
   );
 }

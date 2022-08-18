@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./style.css";
 
 import { BsFillFileEarmarkArrowUpFill } from "react-icons/bs";
 // import { ROOT_FOLDER } from "../../hooks/useFolder"
@@ -19,8 +20,8 @@ export default function AddFileBtn({ currentFolder }) {
 
   return (
     <>
-      <label className="btn btn-outline-success btn-sm m-0 mr-2">
-        <BsFillFileEarmarkArrowUpFill />
+      <label className="btn btn-outline-success btn-sm  ml-2 btnSpaseFile">
+        <BsFillFileEarmarkArrowUpFill size="40px" />
         <input
           type="file"
           onChange={handleUpload}

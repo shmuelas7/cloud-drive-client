@@ -23,3 +23,17 @@ thead, tbody tr{
    table-layout: fixed;
    width: 100%;
 }
+.orderItem{
+   display: flex;
+   flex-direction: row-reverse;
+}
+.containerAddFolder{
+   margin-left: 20px;
+}
+.btnSpaseFile{
+   margin-left: 20px;
+}
+/* .BreadcrumbContainer{
+   display: flex;
+
+} */

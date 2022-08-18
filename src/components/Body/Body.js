@@ -1,30 +1,52 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-// import { useFolder } from "../../hooks/useFolder";
 import AddFolderBtn from "./AddFolderBtn";
 import AddFileBtn from "./AddFileBtn";
-// import Folder from "./Folder";
-// import File from "./File";
-// import Navbar from "./Navbar";
-// import FolderBreadcrumbs from "./FolderBreadcrumbs";
-// import { useParams, useLocation } from "react-router-dom";
+import Folder from "./Folder";
+import File from "./File";
 
-export default function Dashboard() {
-  // const { folderId } = useParams();
-  // const { state = {} } = useLocation();
-  // const { folder, childFolders, childFiles } = useFolder(
-  //   folderId,
-  //   state.folder
-  // );
+import axios from "axios";
+
+import FolderBreadcrumbs from "./FolderBreadcrumbs";
+
+export default function Body() {
+  const [path, setPath] = useState("root");
+  const [fileList, setFileList] = useState([]);
+
+  useEffect(() => {
+    const getData = async () => {
+      console.log(path);
+      const data = await axios.get(`http://localhost:3001/root`, {
+        params: { path: path },
+      });
+      console.log(data.data);
+      setFileList(data.data);
+    };
+    console.log("Running");
+    getData();
+  }, [path]);
 
   return (
     <>
-      {/* <Navbar /> */}
       <Container fluid>
-        <div className="d-flex align-items-center">
-          {/* <FolderBreadcrumbs currentFolder={folder} /> */}
+        <FolderBreadcrumbs path={path} setPath={setPath} />
+        <div className="d-flex  flex-row-reverse  ">
+          <AddFolderBtn path={path} />
           <AddFileBtn currentFolder={null} />
-          <AddFolderBtn currentFolder={null} />
+        </div>
+        <div className="d-flex flex-wrap">
+          {fileList.map((item, i) =>
+            !item.includes(".") ? (
+              <div key={i} style={{ maxWidth: "250px" }} className="p-2">
+                <Folder folder={item} setPath={setPath} path={path} />
+              </div>
+            ) : (
+              <div key={i} style={{ maxWidth: "250px" }} className="p-2">
+                <File file={item} />
+              </div>
+            )
+          )}
         </div>
       </Container>
     </>
