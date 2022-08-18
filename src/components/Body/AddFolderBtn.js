@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { FaFolderPlus } from "react-icons/fa";
+import axios from "axios";
 
-// import { ROOT_FOLDER } from "../../hooks/useFolder";
-
-export default function AddFolderBtn({ currentFolder }) {
+export default function AddFolderBtn({ path, setPath }) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
 
@@ -16,12 +15,18 @@ export default function AddFolderBtn({ currentFolder }) {
     setOpen(false);
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
-    //TODO:  ADD FOLDER TO SERVER
+    console.log(name);
+    axios.post("http://localhost:3001/createFolder", {
+      name: name,
+      path: path,
+    });
+
     setName("");
     closeModal();
+    setPath(path);
   }
 
   return (

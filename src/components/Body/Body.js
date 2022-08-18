@@ -32,7 +32,7 @@ export default function Body() {
       <Container fluid>
         <FolderBreadcrumbs path={path} setPath={setPath} />
         <div className="d-flex  flex-row-reverse  ">
-          <AddFolderBtn path={path} />
+          <AddFolderBtn path={path} setPath={setPath} />
           <AddFileBtn currentFolder={null} />
         </div>
         <div className="d-flex flex-wrap">
