@@ -12,6 +12,7 @@ import FolderBreadcrumbs from "./FolderBreadcrumbs";
 
 export default function Body() {
   const [path, setPath] = useState("root");
+  const [render, setRender] = useState(false);
   const [fileList, setFileList] = useState([]);
 
   useEffect(() => {
@@ -25,15 +26,20 @@ export default function Body() {
     };
     console.log("Running");
     getData();
-  }, [path]);
+  }, [path, render]);
 
   return (
     <>
       <Container fluid>
         <FolderBreadcrumbs path={path} setPath={setPath} />
         <div className="d-flex  flex-row-reverse  ">
-          <AddFolderBtn path={path} setPath={setPath} />
-          <AddFileBtn currentFolder={null} />
+          <AddFolderBtn
+            path={path}
+            setPath={setPath}
+            render={render}
+            setRender={setRender}
+          />
+          <AddFileBtn path={path} render={render} setRender={setRender} />
         </div>
         <div className="d-flex flex-wrap">
           {fileList.map((item, i) =>

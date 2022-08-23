@@ -3,7 +3,7 @@ import { Button, Modal, Form } from "react-bootstrap";
 import { FaFolderPlus } from "react-icons/fa";
 import axios from "axios";
 
-export default function AddFolderBtn({ path, setPath }) {
+export default function AddFolderBtn({ path, setPath, render, setRender }) {
   const [open, setOpen] = useState(false);
   const [name, setName] = useState("");
 
@@ -26,7 +26,7 @@ export default function AddFolderBtn({ path, setPath }) {
 
     setName("");
     closeModal();
-    setPath(path);
+    render ? setRender(false) : setRender(true);
   }
 
   return (
