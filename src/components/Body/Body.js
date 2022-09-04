@@ -49,7 +49,12 @@ export default function Body() {
               </div>
             ) : (
               <div key={i} style={{ maxWidth: "250px" }} className="p-2">
-                <File file={item} />
+                <File
+                  file={item}
+                  path={path}
+                  render={render}
+                  setRender={setRender}
+                />
               </div>
             )
           )}
