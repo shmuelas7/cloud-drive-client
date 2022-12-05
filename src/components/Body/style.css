@@ -1,39 +1,86 @@
-table{
-    color : #68829e;
-    margin: 100px  10px;
+.containerAddFolder {
+   margin-left: 20px;
+   width: 300px;
 }
-thead{
-   background-color:#68829e ;
-   color: white;
+
+.btnSpaseFile {
+   margin-left: 20px;
+   width: 300px;
+}
+
+.headerContainer {
+   height: 70px;
+}
+
+.headerBox {
+   display: flex;
+   margin-left: 20px;
+}
+
+.file {
+   min-width: 250px;
+   max-width: 410px;
+   height: 50px;
+   border-color: #C1C1C1;
    cursor: pointer;
-}
-tbody ion-icon{
-   font-size: 24px;
-   color: #68829e;
+   border-style: solid 2px;
+   position: relative;
 
 }
-tbody{
-   display: block;
-   height: 300px;
-   overflow-y: scroll;
+
+.mar-l {
+   margin-left: 20px;
 }
 
-thead, tbody tr{
-   display: table;
-   table-layout: fixed;
+.btnn {
    width: 100%;
 }
-.orderItem{
-   display: flex;
-   flex-direction: row-reverse;
+
+
+
+
+
+
+.containerOption {
+   background-color: #C1C1C1;
+   height: 120px;
+   width: 150px;
+   z-index: 1;
+
 }
-.containerAddFolder{
-   margin-left: 20px;
+
+.action {
+   left: 98%;
+   top: -30px;
+   position: relative;
+
 }
-.btnSpaseFile{
-   margin-left: 20px;
+
+.icon-dot {
+   margin-left: 50px;
 }
-/* .BreadcrumbContainer{
+
+.x {
+   padding: 3px;
    display: flex;
 
-} */
+}
+
+.x:hover {
+   color: red;
+
+}
+
+
+
+
+.btnSize {
+   width: 100px;
+   padding: 5px;
+   border-bottom: black dashed 1px;
+}
+
+.btnSize:hover {
+   color: white;
+
+}

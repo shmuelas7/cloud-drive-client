@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, Form } from "react-bootstrap";
-import { FaFolderPlus } from "react-icons/fa";
+import { BsFolderPlus } from "react-icons/bs";
+import { AiOutlinePlus } from "react-icons/ai";
 import axios from "axios";
 
 export default function AddFolderBtn({ path, setPath, render, setRender }) {
@@ -30,9 +31,15 @@ export default function AddFolderBtn({ path, setPath, render, setRender }) {
   }
 
   return (
-    <div className="containerAddFolder">
-      <Button onClick={openModal} variant="outline-success" size="sm">
-        {<FaFolderPlus size="40px" />}
+    <div className="containerAddFolder bg-primary  rounded ">
+      <Button
+        onClick={openModal}
+        size="lg"
+        className=" d-flex justify-content-between w-100 h-100 align-items-center"
+      >
+        <BsFolderPlus size="40px" />
+        <span>New Folder</span>
+        <AiOutlinePlus size="25" />
       </Button>
       <Modal show={open} onHide={closeModal}>
         <Form onSubmit={handleSubmit}>

@@ -1,8 +1,9 @@
 import React from "react";
 import "./style.css";
-
-import { BsFillFileEarmarkArrowUpFill } from "react-icons/bs";
+import { Button, Modal, Form } from "react-bootstrap";
+import { BsFileEarmarkArrowUp } from "react-icons/bs";
 import axios from "axios";
+import { AiOutlinePlus } from "react-icons/ai";
 
 export default function AddFileBtn({ path, render, setRender }) {
   // const [file, setFile] = useState(null);
@@ -28,15 +29,19 @@ export default function AddFileBtn({ path, render, setRender }) {
 
   return (
     <>
-      <label className="btn btn-outline-success btn-sm  ml-2 btnSpaseFile">
-        <BsFillFileEarmarkArrowUpFill size="40px" />
-        <input
-          type="file"
-          name="file"
-          onChange={handleUpload}
-          style={{ opacity: 0, position: "absolute", left: "-9999px" }}
-        />
-      </label>
+      <div className="btnSpaseFile bg-primary  rounded  ">
+        <Button className="btn btn-lg  ml-2  d-flex justify-content-between w-100 h-100 align-items-center ">
+          <BsFileEarmarkArrowUp size="40px" />
+          <input
+            type="file"
+            name="file"
+            onChange={handleUpload}
+            style={{ opacity: 0, position: "absolute", with: "100%" }}
+          />
+          <span>Upload File</span>
+          <AiOutlinePlus size="25" />
+        </Button>
+      </div>
     </>
   );
 }
